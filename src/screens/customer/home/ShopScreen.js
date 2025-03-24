@@ -64,8 +64,6 @@ const ViewShopScreen = ({ navigation, route }) => {
         name: userData.name,
         image: userData.image,
         email: userData.email,
-        latitude: userData.latitude || null,
-        longitude: userData.longitude || null,
       });
       await fetchServices();
 
@@ -89,26 +87,27 @@ const ViewShopScreen = ({ navigation, route }) => {
 
   // Function to open location in maps app
   const openLocationInMaps = () => {
-    const { latitude, longitude, address } = shopInfo;
-    
-    if (latitude && longitude) {
-      // If we have coordinates, use them
-      const url = Platform.select({
-        ios: `maps:${latitude},${longitude}?q=${encodeURIComponent(shopInfo.name)}`,
-        android: `geo:${latitude},${longitude}?q=${encodeURIComponent(shopInfo.name)}`,
-      });
-      Linking.openURL(url);
-    } else if (address) {
-      // If we only have address, search for it
-      const url = Platform.select({
-        ios: `maps:0,0?q=${encodeURIComponent(address)}`,
-        android: `geo:0,0?q=${encodeURIComponent(address)}`,
-      });
-      Linking.openURL(url);
-    } else {
-      // Alert or handle case where no location data is available
-      alert("Location information is not available for this shop");
-    }
+    navigation.navigate("LocationViewer", { address: shopInfo.address });
+    // const { latitude, longitude, address } = shopInfo;
+
+    // if (latitude && longitude) {
+    //   // If we have coordinates, use them
+    //   const url = Platform.select({
+    //     ios: `maps:${latitude},${longitude}?q=${encodeURIComponent(shopInfo.name)}`,
+    //     android: `geo:${latitude},${longitude}?q=${encodeURIComponent(shopInfo.name)}`,
+    //   });
+    //   Linking.openURL(url);
+    // } else if (address) {
+    //   // If we only have address, search for it
+    //   const url = Platform.select({
+    //     ios: `maps:0,0?q=${encodeURIComponent(address)}`,
+    //     android: `geo:0,0?q=${encodeURIComponent(address)}`,
+    //   });
+    //   Linking.openURL(url);
+    // } else {
+    //   // Alert or handle case where no location data is available
+    //   alert("Location information is not available for this shop");
+    // }
   };
 
   // Review Card Component
@@ -179,7 +178,7 @@ const ViewShopScreen = ({ navigation, route }) => {
         <View style={styles.shopInfoContainer}>
           <View style={styles.shopTitleContainer}>
             <Text style={styles.shopName}>{shopInfo?.name}</Text>
-            <TouchableOpacity 
+            <TouchableOpacity
               style={styles.mapButton}
               onPress={openLocationInMaps}
             >

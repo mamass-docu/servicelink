@@ -341,6 +341,7 @@ const JobStatusScreen = ({ route, navigation }) => {
   const onShowLocation = () => {
     const address =
       userRole == "Provider" ? user?.address : user?.providerAddress;
+
     if (!address) {
       alert("Address not found!!!");
       return;
