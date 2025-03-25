@@ -60,8 +60,8 @@ const PayBillsScreen = ({ navigation }) => {
     let b = 0;
     snap.docs.forEach((item) => {
       const data = item.data();
-      if (data.commissionReference && data.commissionStatus == "Completed")
-        return;
+      // if (data.commissionReference && data.commissionStatus == "Completed")
+      //   return;
 
       const price = parseInt(data.price);
       const commission = parseInt(price * 0.15);
