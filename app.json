@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "ServiceLink",
+    "slug": "servicelinkv2",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/logo.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "notification": {
+      "icon": "./assets/images/logo.png"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.juniorprogrammer.ServiceLink",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/logo.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "FOREGROUND_SERVICE"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAGmaqfYOEzSReQ1tSzl1yaqnR75GuI2x8"
+        }
+      },
+      "package": "com.juniorprogrammer.ServiceLink"
+    },
+    "web": {
+      "favicon": "./assets/images/logo.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d3caea93-0108-4946-b0e0-e51a02c1a449"
+      }
+    },
+    "owner": "21stylish"
+  }
+}
